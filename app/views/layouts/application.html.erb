@@ -8,9 +8,13 @@
 </head>
 <body>
 
+<%= render partial: 'layouts/header' %>
+
 <p> <%= flash.notice %> </p>
 
 <%= yield %>
+
+<%= render partial: 'layouts/footer' %>
 
 </body>
 </html>

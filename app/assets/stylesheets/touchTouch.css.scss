@@ -12,7 +12,7 @@
 	background-color:rgba(0,0,0,0.8);
 	overflow:hidden;
 	display:none;
-	
+
 	-moz-transition:opacity 1s ease;
 	-webkit-transition:opacity 1s ease;
 	transition:opacity 1s ease;
@@ -26,21 +26,21 @@
 
 #gallerySlider{
 	height:100%;
-	
+
 	left:0;
 	top:0;
-	
+
 	width:100%;
 	white-space: nowrap;
 	position:absolute;
-	
+
 	-moz-transition:left 0.4s ease;
 	-webkit-transition:left 0.4s ease;
 	transition:left 0.4s ease;
 }
 
 #gallerySlider .placeholder{
-	background: url(../img/loader.gif) no-repeat center center;
+	background:image-url("loader.gif") no-repeat center center;
 	height: 100%;
 	line-height: 1px;
 	text-align: center;
@@ -109,16 +109,16 @@
 #prevArrow,#nextArrow{
 	border:none;
 	text-decoration:none;
-	background:url('../img/arrows.png') no-repeat;
+	background:image-url('arrows.png') no-repeat;
 	opacity:0.5;
 	cursor:pointer;
 	position:absolute;
 	width:43px;
 	height:58px;
-	
+
 	top:50%;
 	margin-top:-29px;
-	
+
 	-moz-transition:opacity 0.2s ease;
 	-webkit-transition:opacity 0.2s ease;
 	transition:opacity 0.2s ease;

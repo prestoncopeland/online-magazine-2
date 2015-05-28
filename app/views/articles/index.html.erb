@@ -54,9 +54,9 @@ jQuery(window).load(function () {
       <div class="span12">
 
         <!-- slider is here -->
-        <!--<%= render partial: 'layouts/slider' %> -->
+        <%= render partial: 'layouts/slider' %>
 
-        <iframe width="420" height="315" src="https://www.youtube.com/embed/tDl3bdE3YQA" frameborder="0" allowfullscreen></iframe>
+
 
 
         <span id="responsiveFlag"></span>
@@ -93,7 +93,8 @@ jQuery(window).load(function () {
             <li class="span3">
               <div class="thumbnail thumbnail-1">
                 <h3>Music</h3>
-                <img src="img/page1-img2.jpg" alt="">
+                <div class="thumbnail thumbnail-1">
+              <%= image_tag("page1-img2.jpg") %>
                 <section> <strong>Deleniti atque corrupti quos</strong>
                   <p>Dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
                   <a href="#" class="btn btn-1">Read More</a> </section>
@@ -102,7 +103,8 @@ jQuery(window).load(function () {
             <li class="span3">
               <div class="thumbnail thumbnail-1">
                 <h3>Sports</h3>
-                <img src="img/page1-img3.jpg" alt="">
+               <div class="thumbnail thumbnail-1">
+              <%= image_tag("page1-img3.jpg") %>
                 <section> <strong>Similique sunt in culpa qui officia </strong>
                   <p>Deserunt mollitia animi, id est laborum et dolorum fuga.</p>
                   <a href="#" class="btn btn-1">Read More</a> </section>
@@ -111,7 +113,8 @@ jQuery(window).load(function () {
             <li class="span3">
               <div class="thumbnail thumbnail-1">
                 <h3 class="title-1 extra">Scandal</h3>
-                <img src="img/page1-img4.jpg" alt="">
+                <div class="thumbnail thumbnail-1">
+              <%= image_tag("page1-img4.jpg") %>
                 <section> <strong>Similique sunt in culpa qui officia</strong>
                   <p>Deserunt mollitia animi, id est laborum et dolorum fuga.</p>
                   <a href="#" class="btn btn-1">Read More</a> </section>

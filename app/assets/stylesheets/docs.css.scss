@@ -130,8 +130,9 @@
 }
 
 #advanced .dropdown-menu li li a {
-  display: inline-block\0/;
-}
+  display: inline-block;}
+/*I erased a weird 0 in 'inline-block' above; it
+was originally  display: inline-block\0/; */
 #panel .dropdown-menu li > a:hover,
 #panel .dropdown-menu li > a:focus,
 #panel .dropdown-submenu:hover > a {

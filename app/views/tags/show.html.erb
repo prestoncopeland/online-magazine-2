@@ -1,0 +1,29 @@
+<div class="bg-content">
+  <div id="content">
+    <div class="container">
+      <div class="row">
+<h2> Articles Filed Under <%= @tag.name.upcase %> </h2>
+
+  <ul>
+    <% @tag.articles.each do |article| %>
+    <li><%= link_to article.title, article_path(article) %> </li>
+    <% end %>
+  </ul>
+
+  </div>
+
+    <div class="row">
+    <div class="col-xs-4">
+    <%= link_to "Edit Category", edit_tag_path(@tag) %>
+    </div>
+    <div class="col-xs-4">
+    <%= link_to "Delete Category", tag_path(@tag), method: :delete, data: {confirm: "Really delete the category?"} %>
+    </div>
+    <div class="col-xs-4">
+    <%= link_to "Back To All Categories", tags_path %>
+    </div>
+    </div>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,19 @@
+<div class="bg-content">
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <article class="span12">
+          <h2>Article Categories</h2>
+        </article>
+         <div class="clear"></div>
+
+         <ul class="portfolio clearfix">
+            <% @tags.each do |tag| %>
+              <li class="box"> <%= link_to(tag.name.upcase, tag_path(tag)) %></li>
+            <% end %>
+         </ul>
+
+      </div>
+    </div>
+  </div>
+</div>

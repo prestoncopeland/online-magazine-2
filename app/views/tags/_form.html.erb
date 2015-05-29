@@ -1,0 +1,18 @@
+<%= form_for(@tag) do |f| %>
+  <ul>
+    <% @tag.errors.full_messages.each do |error| %>
+      <li> <%= error %> </li>
+      <% end %>
+  </ul>
+
+    <h2><%= f.label :name %></h2>
+    <p>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.submit "Update", :class => "btn-1" %>
+    </p>
+
+<% end %>
+

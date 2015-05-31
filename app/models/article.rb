@@ -2,10 +2,9 @@ class Article < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
-  has_many :attachments
-  has_many :photos, through: :attachments
+  has_many :photos
 
-  accepts_nested_attributes_for :attachments
+  accepts_nested_attributes_for :photos, :reject_if => :all_blank, :allow_destroy => true
 
   def tag_list
     tags.join(", ")

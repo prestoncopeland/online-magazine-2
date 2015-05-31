@@ -1,9 +1,9 @@
-<%= form_for(@article) do |f| %>
+<%= form_for(setup_article(@article)) do |f| %>
   <ul>
     <% @article.errors.full_messages.each do |error| %>
       <li> <%= error %> </li>
       <% end %>
-    </ul>
+  </ul>
 
     <p>
       <%= f.label :title %> <br/>
@@ -22,11 +22,33 @@
 
     <p>
       <%= f.label :body %> <br/>
-      <%= f.text_area :body %>
+      <%= f.text_area :body, :size=>"20x20" %>
     </p>
 
     <p>
-      <%= f.submit %>
+    <h3>Photos</h3>
+    </p>
+        <%= f.fields_for :photos do |ff| %>
+          <p>
+            <%= ff.label :caption %> <br/>
+            <%= ff.text_field :caption %>
+          </p>
+
+          <p>
+            <%= ff.label :photo, "Attach A Photo" %><br />
+            <%= ff.file_field :photo %>
+          </p>
+
+          <% if ff.object.persisted? %>
+            <%= ff.check_box :_destroy %>
+            <%= ff.label :_destroy, "Destroy" %>
+          <% end %>
+
+          <% end %>
+
+
+    <p>
+      <%= f.submit 'Submit', :class => 'btn btn-1' %>
     </p>
 
 <% end %>

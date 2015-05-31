@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'paperclip'
 
+gem 'cocoon'
+
 gem 'pg'
 
 gem 'rails_12factor', group: :production

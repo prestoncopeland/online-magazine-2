@@ -30,10 +30,10 @@
   text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
   color: #fff;
 }
-#advanced span.trigger{display:block;position:absolute; background:url(../img/tm/pro_button.png) 0 0 no-repeat; width:42px; height:42px; right:0; top:41px; cursor:pointer;}
-#advanced span.trigger strong{display:block; background: url(../img/tm/plus-minus.png) 0 0 no-repeat; width:11px; height:11px; position:absolute; right:7px; bottom:24px; opacity:0;}
+#advanced span.trigger{display:block;position:absolute; background:image-url("pro_button.png") 0 0 no-repeat; width:42px; height:42px; right:0; top:41px; cursor:pointer;}
+#advanced span.trigger strong{display:block; background:image-url("plus-minus.png") 0 0 no-repeat; width:11px; height:11px; position:absolute; right:7px; bottom:24px; opacity:0;}
 #advanced.closed span.trigger strong{opacity:1; }
-#advanced span.trigger em{display:block; background: url(../img/tm/plus-minus.png) -11px 0 no-repeat; width:11px; height:11px; position:absolute; right:7px; bottom:24px;}
+#advanced span.trigger em{display:block; background:image-url("plus-minus.png") -11px 0 no-repeat; width:11px; height:11px; position:absolute; right:7px; bottom:24px;}
 #panel li {
   line-height: 20px;
 }
@@ -123,10 +123,10 @@
   margin-left: 40px;
 }
 #panel .dropdown-menu ul li a {
-  padding-left: 5px;#advanced span.trigger{display:block;position:absolute; background:url(../img/tm/pro_button.png) 0 0 no-repeat; width:42px; height:42px; right:0; bottom:-42px; cursor:pointer;}
-#advanced span.trigger strong{display:block; background: url(../img/tm/plus-minus.png) 0 0 no-repeat; width:11px; height:11px; position:absolute; right:7px; bottom:24px; opacity:0;}
+  padding-left: 5px;#advanced span.trigger{display:block;position:absolute; background:image-url("pro_button.png") 0 0 no-repeat; width:42px; height:42px; right:0; bottom:-42px; cursor:pointer;}
+#advanced span.trigger strong{display:block; background:image-url("plus-minus.png") 0 0 no-repeat; width:11px; height:11px; position:absolute; right:7px; bottom:24px; opacity:0;}
 #advanced.closed span.trigger strong{opacity:1;}
-#advanced span.trigger em{display:block; background: url(../img/tm/plus-minus.png) -11px 0 no-repeat; width:11px; height:11px; position:absolute; right:7px; bottom:24px;}
+#advanced span.trigger em{display:block; background:image-url("plus-minus.png") -11px 0 no-repeat; width:11px; height:11px; position:absolute; right:7px; bottom:24px;}
 }
 
 #advanced .dropdown-menu li li a {

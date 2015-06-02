@@ -1,4 +1,59 @@
 <h1> Edit Article </h1>
+<!-- so much repetition because :url => article_path
+  for edit instead of :url => articles_path for create! -->
 
-<%= render partial: 'form' %>
+<%= form_for @article, :url => article_path, :html => { :multipart => true } do |f| %>
+  <ul>
+    <% @article.errors.full_messages.each do |error| %>
+      <li> <%= error %> </li>
+      <% end %>
+  </ul>
+
+    <p>
+      <%= f.label :title %> <br/>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :author %> <br/>
+      <%= f.text_field :author %>
+    </p>
+
+    <p>
+      <%= f.label :tag_list %> <br/>
+      <%= f.text_field :tag_list %>
+    </p>
+
+    <p>
+      <%= f.label :body %> <br/>
+      <%= f.text_area :body, :size=>"20x20" %>
+    </p>
+
+    <p>
+    <h3>Photos</h3>
+    </p>
+        <%= f.fields_for :photos do |ff| %>
+          <p>
+            <%= ff.label :caption %> <br/>
+            <%= ff.text_field :caption %>
+          </p>
+
+          <p>
+            <%= ff.label :photo, "Attach A Photo" %><br />
+            <%= ff.file_field :photo %>
+          </p>
+
+          <% if ff.object.persisted? %>
+            <%= ff.check_box :_destroy %>
+            <%= ff.label :_destroy, "Destroy" %>
+          <% end %>
+
+        <% end %>
+
+
+    <p>
+    <%= f.submit 'Submit', :class => 'btn btn-1' %>
+    </p>
+
+<% end %>
 

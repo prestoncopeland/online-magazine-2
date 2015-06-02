@@ -36,7 +36,7 @@ a[href^="tel:"] {
   background:image-url("spinner.gif") 50% 50% no-repeat #000000;
 }
 .preloader {
-  background: url(../img/loader.gif) center center no-repeat;
+  background:image-url('loader.gif') center center no-repeat;
 }
 .clear {
   clear: both;
@@ -337,7 +337,7 @@ p {
   font-weight: normal;
 }
 .border-horiz {
-  background: url(../img/border-horiz.gif) repeat-x 0 0;
+  background:image-url("border-horiz.gif") repeat-x 0 0;
   height: 2px;
   margin: 16px 0 0;
 }
@@ -417,7 +417,7 @@ p {
   margin: 0;
 }
 .list li {
-  background: url(../img/marker-1.png) no-repeat 0 7px;
+  background:image-url("marker-1.png") no-repeat 0 7px;
   padding-left: 10px;
   padding-bottom: 10px;
 }
@@ -482,7 +482,7 @@ p {
   opacity: 0;
   left: 0;
   top: 0;
-  background: url('../img/magnifier.png') center center no-repeat #000000;
+  background:image-url("magnifier.png") center center no-repeat #000000;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -497,7 +497,7 @@ p {
   margin: 0;
 }
 .list-blog li {
-  background: url(../img/border-horiz.gif) repeat-x 0 bottom;
+  background:image-url("border-horiz.gif") repeat-x 0 bottom;
   padding-bottom: 40px;
   margin-top: 32px;
 }
@@ -833,19 +833,19 @@ footer {
   background-repeat: no-repeat;
 }
 .list-social a.icon-1 {
-  background-image: url(../img/soc-icon-1.png);
+  background-image:image-url("soc-icon-1.png");
 }
 .list-social a.icon-2 {
-  background-image: url(../img/soc-icon-2.png);
+  background-image:image-url("soc-icon-2.png");
 }
 .list-social a.icon-3 {
-  background-image: url(../img/soc-icon-3.png);
+  background-image:image-url("soc-icon-3.png");
 }
 .list-social a.icon-4 {
-  background-image: url(../img/soc-icon-4.png);
+  background-image:image-url("soc-icon-4.png");
 }
 .list-social a.icon-5 {
-  background-image: url(../img/soc-icon-5.png);
+  background-image:image-url("soc-icon-5.png");
 }
 .list-social li {
   float: left;
@@ -1018,7 +1018,7 @@ footer {
     position: absolute;
     width: 9px;
     height: 6px;
-    background: url(../img/indicator.png) no-repeat 0 0;
+    background:image-url("indicator.png") no-repeat 0 0;
     left: 50%;
     bottom: 12px;
     margin-left: -5px;

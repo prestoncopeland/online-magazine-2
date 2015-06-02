@@ -6,21 +6,27 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @photos = @article.photos
   end
 
   def new
     @article = Article.new
+    2.times { @article.photos.build}
   end
 
   def create
     @article = Article.new(article_params)
-    @article.save
-    flash.notice = "Article '#{@article.title}' created!"
-    redirect_to article_path(@article)
+    if @article.save
+      flash.notice = "Article '#{@article.title}' created!"
+      redirect_to article_path(@article)
+    else
+      render :action => 'new'
+    end
   end
 
   def edit
     @article = Article.find(params[:id])
+    2.times { @article.photos.build}
   end
 
   def update
@@ -40,7 +46,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :author, :body, :tag_list, photos_attributes: [:id, :caption, :done, :_destroy])
+    params.require(:article).permit(:title, :author, :body, :tag_list, photos_attributes:[:photo_id, :caption, :photo, :done, :_destroy])
   end
 
 

@@ -24,5 +24,46 @@
 
 <%= render partial: 'layouts/footer' %>
 
+<!--
+<script>
+if ($(window).width() > 1024) {
+    document.write("<" + "script src='javascripts/jquery.preloader.js'></" + "script>");
+}
+</script>
+-->
+
+<script>
+  jQuery(document).ready(function () {
+    $x = $(window).width();
+    if ($x > 1024) {
+        jQuery("#content .row").preloader();
+    }
+    jQuery('.magnifier').touchTouch();
+    jQuery('.spinner').animate({
+        'opacity': 0
+    }, 1000, 'easeOutCubic', function () {
+        jQuery(this).css('display', 'none')
+    });
+});
+</script>
+
+<!--
+<script>
+jQuery(window).load(function () {
+    $x = $(window).width();
+    if ($x > 1024) {
+        jQuery("#content .row").preloader();
+    }
+    jQuery('.magnifier').touchTouch();
+    jQuery('.spinner').animate({
+        'opacity': 0
+    }, 1000, 'easeOutCubic', function () {
+        jQuery(this).css('display', 'none')
+    });
+});
+</script>
+-->
 </body>
+
+
 </html>

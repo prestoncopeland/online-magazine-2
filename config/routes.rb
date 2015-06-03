@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'visitors/new'
-
   root to: 'articles#index'
+
+  resources :visitors, only: [:new, :create]
 
   resources :articles do
     resources :photos

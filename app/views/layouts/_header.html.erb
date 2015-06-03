@@ -12,9 +12,16 @@
               <ul class="nav sf-menu">
 
                 <li class="active"><%= link_to "Home", root_path %></li>
-                <li><a href="#">Inspiration</a></li>
-                <li><a href="#">Music</a></li>
+                 <li class="sub-menu"><a href="#">Articles</a>
+                  <ul>
+                    <li><a href="#">Inspiration</a></li>
+                    <li><a href="#">Music</a></li>
+                    <li><a href="#">Celebrities</a></li>
+                    <li><a href="#">Sports</a></li>
+                  </ul>
+                </li>
                 <li><a href="#">Subscribe</a></li>
+                <li><a href="#">Advertise</a></li>
                 <li><%= link_to "Contact", new_visitor_path %></li>
 
               </ul>

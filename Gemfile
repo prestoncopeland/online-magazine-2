@@ -26,9 +26,13 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'paperclip'
 
-gem 'cocoon'
+gem 'simple_form'
 
 gem 'pg'
+
+gem 'gibbon'
+
+gem 'sucker_punch'
 
 gem 'rails_12factor', group: :production
 

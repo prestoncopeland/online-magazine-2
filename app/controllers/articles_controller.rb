@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
 
+  def sort
+  end
+
   def index
     @articles = Article.all
   end

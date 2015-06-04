@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
 
   def sort
+    category = Article.categories[params[:category]]
+    @articles = Article.where("category = ?", category)
+    @category = params[:category].humanize
   end
 
   def index

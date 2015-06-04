@@ -1,35 +1,31 @@
 <div class="bg-content">
   <div id="content">
     <div class="container">
-      <div class="row"><h1> CATEGORY </h1> </div>
+      <div class="row"><h1>Latest <%= @category %> News</h1> </div>
       <div class="row">
         <article class="span12">
           <div class="inner-1">
             <ul class="list-blog">
-              <li>
-                <h3>Duis autem vel eum iriure dolor</h3>
-                <time datetime="2045-11-09" class="date-1">9.11.2045</time>
-                <div class="name-author">by <a href="#">Admin</a></div>
+                <% @articles.each do |article| %>
+                <li>
+                <h3><%= article.title %></h3>
+                <time class="date-1"><%= article.created_at.to_date %></time>
+                <div class="name-author">by <%=article.author %></div>
                 <a href="#" class="comments">11 comments</a>
                 <div class="clear"></div>
+                 <% if article.photos.exists? %>
+                 <%= image_tag(article.photos.first.photo.url(:large)) %>
+                 <% else %>
                 <%= image_tag('page4-img1.jpg') %>
-                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum delenit augue duis dolore te feugait nulla facilisi.</p>
-                <a href="#" class="btn btn-1">Read More</a> </li>
-
-
-              <li>
-                <h3>Hendrerit in vulputate velit esse molestie</h3>
-                <time datetime="2045-11-08" class="date-1">8.11.2045</time>
-                <div class="name-author">by <a href="#">Admin</a></div>
-                <a href="#" class="comments">9 comments</a>
-                <div class="clear"></div>
-                <%= image_tag('page4-img2.jpg') %>
-                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum delenit augue duis dolore te feugait nulla facilisi.</p>
-                <a href="#" class="btn btn-1">Read More</a> </li>
+                 <% end %>
+                <p><%= article.body %></p>
+                <p>Read on ...
+                <%= link_to article.title, article_path(article) %> </p></li>
+                <% end %>
             </ul>
           </div>
       </article>
     </div>
-  </div>
-</div>
-</div>
+  </div><!--container-->
+</div><!--content-->
+</div> <!--bgcontent-->

@@ -13,7 +13,7 @@
         <div class="block-slogan">
           <h2>Welcome To Initials Magazine!</h2>
           <div>
-            <p>Initials Magazine brings you two things: celebrity news (with a music slant) and life inspiration. It's hard being a millenial! Let's succeed together.</p>
+            <p>Initials Magazine brings you two things: celebrity news (with a music slant) and life inspiration. It's hard being a millenial! Let's succeed together.<%= link_to('New Article', new_article_path, :class => 'btn btn-1')%></p>
           </div>
         </div>
 
@@ -34,8 +34,7 @@
               <section> <strong>At vero eos et accusamus et iusto </strong>
 
               <p>Odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
-
-              <%= link_to('New Article', new_article_path, :class => 'btn btn-1')%>
+              <%= link_to('Read More', articles_sort_path(:category => 'inspiration'), :class => 'btn btn-1')%></section>
               </div>
             </li>
 
@@ -46,7 +45,7 @@
               <%= image_tag("page1-img2.jpg") %>
                 <section> <strong>Deleniti atque corrupti quos</strong>
                   <p>Dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-                  <%= link_to('Read More', articles_sort_path(:category => 'celebrities'), :class => 'btn btn-1')%>
+                  <%= link_to('Read More', articles_sort_path(:category => :celebrities), :class => 'btn btn-1')%></section>
               </div>
             </li>
             <li class="span3">
@@ -56,7 +55,7 @@
               <%= image_tag("page1-img3.jpg") %>
                 <section> <strong>Similique sunt in culpa qui officia </strong>
                   <p>Deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-                  <a href="#" class="btn btn-1">Read More</a> </section>
+                  <%= link_to('Read More', articles_sort_path(:category => 'music'), :class => 'btn btn-1')%> </section>
               </div>
             </li>
             <li class="span3">
@@ -66,7 +65,7 @@
               <%= image_tag("page1-img4.jpg") %>
                 <section> <strong>Similique sunt in culpa qui officia</strong>
                   <p>Deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-                  <a href="#" class="btn btn-1">Read More</a> </section>
+                  <%= link_to('Read More', articles_sort_path(:category => 'sports'), :class => 'btn btn-1')%> </section>
               </div>
             </li>
           </ul>

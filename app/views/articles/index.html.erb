@@ -46,7 +46,7 @@
               <%= image_tag("page1-img2.jpg") %>
                 <section> <strong>Deleniti atque corrupti quos</strong>
                   <p>Dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-                  <a href="#" class="btn btn-1">Read More</a> </section>
+                  <%= link_to('Read More', articles_sort_path(:category => 'celebrities'), :class => 'btn btn-1')%>
               </div>
             </li>
             <li class="span3">

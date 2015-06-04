@@ -1,10 +1,10 @@
 class Article < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
-
   has_many :photos
-
   accepts_nested_attributes_for :photos, :reject_if => :all_blank, :allow_destroy => true
+
+  enum category: [ :celebrities, :music, :inspiration, :sports ]
 
   def tag_list
     tags.join(", ")

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :visitors, only: [:new, :create]
 
-  get 'articles/sort/:category' => 'articles#sort'
+  get 'articles/sort/:category' => 'articles#sort', as: 'articles_sort'
 
   resources :articles do
     resources :photos

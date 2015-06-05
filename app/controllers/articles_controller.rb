@@ -11,6 +11,8 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @latest_articles = Article.limit(15).order(created_at: :desc)
+    @popular_articles = Article.limit(15).order(:created_at)
   end
 
   def show

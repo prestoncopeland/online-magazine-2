@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'articles#index'
+  root to: 'articles#home'
 
   resources :visitors, only: [:new, :create]
 

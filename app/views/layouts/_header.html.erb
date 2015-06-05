@@ -12,7 +12,7 @@
               <ul class="nav sf-menu">
 
                 <li class="active"><%= link_to "Home", root_path %></li>
-                 <li class="sub-menu"><a href="#">Articles</a>
+                 <li class="sub-menu"><%= link_to "Articles", articles_path %>
                   <ul>
               <%= render partial: 'layouts/header_links' %>
                   </ul>

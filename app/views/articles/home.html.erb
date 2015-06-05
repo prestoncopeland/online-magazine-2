@@ -1,0 +1,115 @@
+<div class="spinner"></div>
+
+<div class="bg-content">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+
+        <!-- slider is here -->
+        <%= render partial: 'layouts/slider' %>
+
+        <span id="responsiveFlag"></span>
+
+        <div class="block-slogan">
+          <h2>Welcome To Initials Magazine!</h2>
+          <div>
+            <p>Initials Magazine brings you two things: celebrity news (with a music slant) and life inspiration. It's hard being a millenial! Let's succeed together.<%= link_to('New Article', new_article_path, :class => 'btn btn-1')%></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="content" class="content-extra">
+    <div class="row-1">
+      <div class="container">
+        <div class="row">
+          <ul class="thumbnails thumbnails-1">
+
+            <li class="span3">
+              <h3>Inspiration</h3>
+              <div class="thumbnail thumbnail-1">
+              <%= image_tag("page1-img1.jpg") %>
+              <section> <strong>At vero eos et accusamus et iusto </strong>
+
+              <p>Odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
+              <%= link_to('Read More', articles_sort_path(:category => 'inspiration'), :class => 'btn btn-1')%></section>
+              </div>
+            </li>
+
+            <li class="span3">
+              <div class="thumbnail thumbnail-1">
+                <h3>Celebrities</h3>
+                <div class="thumbnail thumbnail-1">
+              <%= image_tag("page1-img2.jpg") %>
+                <section> <strong>Deleniti atque corrupti quos</strong>
+                  <p>Dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                  <%= link_to('Read More', articles_sort_path(:category => :celebrities), :class => 'btn btn-1')%></section>
+              </div>
+            </li>
+            <li class="span3">
+              <div class="thumbnail thumbnail-1">
+                <h3>Music</h3>
+               <div class="thumbnail thumbnail-1">
+              <%= image_tag("page1-img3.jpg") %>
+                <section> <strong>Similique sunt in culpa qui officia </strong>
+                  <p>Deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+                  <%= link_to('Read More', articles_sort_path(:category => 'music'), :class => 'btn btn-1')%> </section>
+              </div>
+            </li>
+            <li class="span3">
+              <div class="thumbnail thumbnail-1">
+                <h3 class="title-1 extra">Sports</h3>
+                <div class="thumbnail thumbnail-1">
+              <%= image_tag("page1-img4.jpg") %>
+                <section> <strong>Similique sunt in culpa qui officia</strong>
+                  <p>Deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+                  <%= link_to('Read More', articles_sort_path(:category => 'sports'), :class => 'btn btn-1')%> </section>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <article class="span6">
+          <h3>This Month's Theme: JAZZ</h3>
+          <div class="wrapper">
+            <figure class="img-indent"><%= image_tag("page1-img5.jpg") %>
+            </figure>
+            <div class="inner-1 overflow extra">
+              <div class="txt-1">The legendary Mary Stallings will perform in Florida in July.</div>
+              Aperiam, eaque ipsa quae ab illo  veritatis et beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
+              <div class="border-horiz"></div>
+              <div class="overflow">
+                <ul class="list list-pad">
+                  <li><a href="#">Campaigns</a></li>
+                  <li><a href="#">Portraits</a></li>
+                  <li><a href="#">Fashion</a></li>
+                  <li><a href="#">Fine Art</a></li>
+                </ul>
+                <ul class="list">
+                  <li><a href="#">Advertising</a></li>
+                  <li><a href="#">Lifestyle</a></li>
+                  <li><a href="#">Love story</a></li>
+                  <li><a href="#">Landscapes</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="span6">
+          <h3>Latest Articles</h3>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

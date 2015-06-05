@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
 
+  def home
+  end
+
   def sort
     category = Article.categories[params[:category]]
     @articles = Article.where("category = ?", category)

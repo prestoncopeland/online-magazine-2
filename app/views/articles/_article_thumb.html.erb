@@ -1,7 +1,12 @@
 <h3><%= article.title %></h3>
-                <time class="date-1"><%= article.created_at.to_date %></time>
-                <div class="name-author">by <%=article.author %></div>
-                <a href="#" class="comments">11 comments</a>
+                <time class="date-1"><%= article.created_at.to_date.strftime('%B %-d, %Y') %></time>
+                <div class="name-author date-1"><%=article.author %></div>
+                <div class="name-author">
+                <!-- disqus comments link -->
+                <%= link_to "",
+                article_path(article, :anchor => "disqus_thread"),
+                        :"data-disqus-identifer" => article.id %></div>
+
                 <div class="clear"></div>
                  <% if article.photos.exists? %>
                  <%= image_tag(article.photos.first.photo.url(:large)) %>

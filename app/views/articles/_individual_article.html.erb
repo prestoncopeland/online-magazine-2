@@ -1,0 +1,31 @@
+<h3><%= article.title %></h3>
+
+<time class="date-1"><%= article.created_at.to_date.strftime('%B %-d, %Y') %></time>
+
+<div class="name-author date-1"><%=article.author %></div>
+
+<div class="name-author date-1">Category: <%= link_to(article.category.humanize, articles_sort_path(:category => article.category))%>
+</div>
+
+<div class="name-author"><!-- disqus comments link -->
+<%= link_to "", article_path(article, :anchor => "disqus_thread"), :"data-disqus-identifer" => article.id %>
+        </div>
+
+
+<div class="clear"></div>
+
+<% if article.photos.exists? %>
+   <%= image_tag(article.photos.first.photo.url(:large)) %>
+<% else %>
+   <%= image_tag('page4-img1.jpg') %>
+<% end %>
+
+<p><%= article.body %></p>
+
+<p> Tags:
+  <% article.tags.each do |tag| %>
+  <%= link_to tag.name, tag_path(tag) %>
+  <% end %>
+</p>
+
+

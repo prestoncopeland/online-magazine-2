@@ -8,7 +8,7 @@
             <ul class="list-blog">
                 <% @articles.each do |article| %>
                 <li>
-                  <%= render partial: 'articles/article_thumb', locals: {:article => article} %>
+                  <%= render partial: 'articles/individual_article', locals: {:article => article} %>
                 </li>
                 <% end %>
             </ul>

@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'high_voltage', '~> 2.3.0'
 
+gem 'will_paginate', '~> 3.0.7'
+
 gem 'paperclip'
 
 gem 'simple_form'

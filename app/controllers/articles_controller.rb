@@ -7,12 +7,12 @@ class ArticlesController < ApplicationController
 
   def sort
     category = Article.categories[params[:category]]
-    @articles = Article.where("category = ?", category)
+    @articles = Article.where("category = ?", category).paginate(:page => params[:page], :per_page => 10)
     @category = params[:category].humanize
   end
 
   def index
-    @articles = Article.all
+    @articles = Article.paginate(:page => params[:page], :per_page => 10)
     @latest_articles = Article.limit(15).order(created_at: :desc)
     @popular_articles = Article.limit(15).order(:created_at)
   end

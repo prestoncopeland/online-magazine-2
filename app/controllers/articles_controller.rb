@@ -17,6 +17,8 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @latest_articles = Article.limit(15).order(created_at: :desc)
+    @popular_articles = Article.limit(15).order(:created_at)
     @photos = @article.photos
   end
 

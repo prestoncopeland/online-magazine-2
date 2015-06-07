@@ -1,25 +1,50 @@
-<h1><%= @article.title %> </h1>
+<div class="spinner"></div>
 
-<p> Tags:
-  <% @article.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %>
-    <% end %>
-</p>
+<div class="bg-content">
+  <div id="content">
+    <div class="container">
+      <div class="row">
 
-<p><%= @article.body %> </p>
-
-
-<% for photo in @article.photos %>
-  <p> <%= image_tag photo.photo.url(:med) %> </p>
-  <p> <%= photo.caption %> </p>
-<% end %>
-
-<!--Disqus Comments -->
-
-     <%= render partial: "disqus/thread", locals: {article: @article} %>
-
-<%= link_to "Edit Article", edit_article_path(@article) %>
+        <article class="span8">
+          <div class="inner-1">
+            <ul class="list-blog">
+              <li>
+                <%= render partial: 'articles/article_thumb', locals: {:article => @article} %>
+              </li>
+              <li>
+              <%= link_to "Edit Article", edit_article_path(@article) %>
 
 <%= link_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
 
 <%= link_to "Back To All Articles", articles_path %>
+</li>
+              </ul>
+          </div>
+        </article>
+
+        <article class="span4">
+
+          <!-- Search bar -->
+          <%= render partial: 'layouts/search_bar' %>
+          <!-- end search bar -->
+
+          <!-- latest articles list -->
+            <%= render partial: 'layouts/sidebar_list', locals: {:articles => @latest_articles, :title => 'Latest Articles'} %>
+          <!-- end latest articles list -->
+
+          <!-- most popular articles -->
+            <%= render partial: 'layouts/sidebar_list', locals: {:articles => @popular_articles, :title => 'Most Popular Articles'} %>
+            <!-- end most popular articles list -->
+
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--Disqus comments -->
+     <%= render partial: "disqus/thread", locals: {article: @article} %>
+<!-- end Disqus comments -->
+

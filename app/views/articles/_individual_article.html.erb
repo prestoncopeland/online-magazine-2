@@ -15,7 +15,7 @@
 <div class="clear"></div>
 
 <% if article.photos.exists? %>
-   <%= image_tag(article.photos.first.photo.url(:large)) %>
+  <%= image_tag(article.photos.first.photo.url(:large)) %>
 <% else %>
    <%= image_tag('page4-img1.jpg') %>
 <% end %>

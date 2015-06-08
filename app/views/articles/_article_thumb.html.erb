@@ -1,5 +1,5 @@
 <% if article.photos.exists? %>
-   <%= image_tag(article.photos.first.photo.url(:med)) %>
+   <%= image_tag(article.photos.first.photo.url(:thumb)) %>
 <% end %>
 <p><%= article.title %> </p>
 

@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
   def home
-    @latest_articles = Article.limit(15).order(created_at: :desc)
+    @latest_articles = Article.limit(6).order(created_at: :desc)
     @popular_articles = Article.limit(15).order(:created_at)
   end
 

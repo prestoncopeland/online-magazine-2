@@ -1,15 +1,9 @@
 <div class="row centered desc">
+<ul class="portfolio clearfix">
 
-<% @latest_articles[0..3].each_with_index do |article, index| %>
-      <% if(index%2==0) %>
-        </div> <!-- end current row -->
-        <div class="row centered desc"> <!--start new row-->
-      <%end%>
+<% @latest_articles.each do |article| %>
+         <li class="box"><%= render partial: 'article_thumb', locals: {article: article} %></li>
+<% end %>
+</ul>
 
-      <div class="col-xs-6">
-        <%= render partial: 'article_thumb', locals: {article: article} %>
-      </div>
-
-<% end %><!--@latest_articles[0..3].each_with_index-->
-
-</div> <!--close final display row -->
+</div> <!--close row centered desc -->

@@ -1,3 +1,9 @@
+<div class="spinner"></div>
+
+<div class="bg-content">
+  <div id="content">
+    <div class="container">
+
 <%= simple_form_for(@event) do |f| %>
   <%= f.error_notification %>
 
@@ -18,3 +24,9 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+<%= link_to 'Go Back To All Events', events_path %>
+
+</div>
+</div>
+</div>
+

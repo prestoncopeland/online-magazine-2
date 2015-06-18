@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :events
   root to: 'articles#home'
 
+  devise_for :users
+  resources :users
+  resources :events
   resources :visitors, only: [:new, :create]
 
   get 'articles/sort/:category' => 'articles#sort', as: 'articles_sort'
@@ -12,5 +14,4 @@ Rails.application.routes.draw do
   end
 
   resources :tags
-
 end

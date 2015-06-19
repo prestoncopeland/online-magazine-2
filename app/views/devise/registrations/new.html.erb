@@ -1,19 +1,127 @@
+<% content_for :head do %>
+  <%= render 'payola/transactions/stripe_header' %>
+<% end %>
+
 <div class="row">
   <div class="devise-form">
-<h2>Subscribe</h2>
 
-<p>*Required fields</p>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form',
+        :class => 'payola-onestep-subscription-form',
+        'data-payola-base-path' => payola_path,
+        'data-payola-plan-type' => resource.subscription.plan_class,
+        'data-payola-plan-id' => resource.subscription.id}) do |f| %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+      <h2>Subscribe</h2>
 
-  <div class="form-inputs">
-    <%= f.input :first_name, required: true %>
-    <%= f.input :last_name, required: true %>
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+      <p>*All fields are required except Address Line 2</p>
+
+      <span id="error_explanation" class="payola-payment-error"></span>
+
+      <br><h5>Creating your account</h5><br>
+      <div class="form-inputs">
+
+      <div class="form-group">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+
+      <div class="form-group">
+      <%= f.label 'Subscription plan' %>
+      <%= f.collection_select(:subscription_id, Subscription.all, :id, :name) %>
+      </div>
+
+      <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, :autofocus => true, class: 'form-control', data: { payola: 'email' }  %>
+      </div>
+
+      <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+
+      <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+
+
     <br> <h5>Where and to whom should we send the magazine?</h5> <br>
+
+
+      <div class="form-group">
+        <%= f.label :addressee %>
+        <%= f.text_field :addressee %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :address_line_1 %>
+        <%= f.text_field :address_line_1 %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :address_line_2 %>
+        <%= f.text_field :address_line_2 %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :city %>
+        <%= f.text_field :city %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :state %>
+        <%= f.select(:state, us_states) %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :zip_code %>
+        <%= f.text_field :zip_code %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :country %>
+        <%= country_select("resource", "country", priority_countries: ["US", "CA", "MX"]) %>
+      </div>
+
+      <br><h5>Payment</h5><br>
+       <div class="form-group">
+          <%= label_tag :card_number, "Credit card number" %>
+          <%= text_field_tag :card_number, nil, name: nil, class: 'form-control', data: { stripe: 'number' } %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :card_code, "Card security code" %>
+        <%= text_field_tag :card_code, nil, name: nil, class: 'form-control', data: { stripe: 'cvc' } %>
+      </div>
+
+      <br />
+      <div class="form-group">
+        <%= label_tag :card_month, "Card expiry" %>
+        <%= select_month nil, { use_two_digit_numbers: true}, { name: nil, data: { stripe: 'exp-month' } } %>
+        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, { name: nil, data: { stripe: 'exp-year' } } %>
+      </div>
+
+      <div class="form-actions">
+      <%= f.submit 'Subscribe', :class => 'btn btn-1' %>
+      </div>
+
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+
+    </div> <!-- end div class form inputs -->
+  </div>
+</div>
+
+<%
+=begin %>
     <%= f.input :addressee, required: true %>
     <%= f.input :address_line_1, required: true %>
     <%= f.input :address_line_2 %>
@@ -23,14 +131,17 @@
     <% end %>
     <%= f.input :zip_code, required: true %>
     <%= f.input :country, required: true, priority: ["US", "CA", "MX"] %>
-  </div>
+      </div> <!-- end form inputs -->
 
-  <div class="form-actions">
+
     <%= f.button :submit, "Subscribe", :class => 'btn btn-1' %>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+
 
 </div>
 </div>
+<%
+=end %>
+

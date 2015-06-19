@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'content/premium'
+
   mount Payola::Engine => '/payola', as: :payola
   root to: 'articles#home'
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => 'registrations' }
   resources :users
   resources :events
   resources :visitors, only: [:new, :create]

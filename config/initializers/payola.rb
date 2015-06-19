@@ -20,10 +20,8 @@ Payola.configure do |config|
   #   raise "Nope!" if sale.email.includes?('yahoo.com')
   # end
 
-Payola.configure do |config|
   config.secret_key = Rails.application.secrets.stripe_api_key
   config.publishable_key = Rails.application.secrets.stripe_publishable_key
-end
 
   # Keep this subscription unless you want to disable refund handling
   config.subscribe 'charge.refunded' do |event|

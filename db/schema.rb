@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619025242) do
+ActiveRecord::Schema.define(version: 20150619131005) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -148,7 +148,7 @@ ActiveRecord::Schema.define(version: 20150619025242) do
 
   add_index "photos", ["article_id"], name: "index_photos_on_article_id"
 
-  create_table "subscriptions", force: :cascade do |t|
+  create_table "plans", force: :cascade do |t|
     t.string   "name"
     t.string   "stripe_id"
     t.string   "interval"
@@ -190,7 +190,6 @@ ActiveRecord::Schema.define(version: 20150619025242) do
     t.integer  "role"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "subscription_id"
     t.string   "addressee"
     t.string   "address_line_1"
     t.string   "address_line_2"
@@ -198,11 +197,12 @@ ActiveRecord::Schema.define(version: 20150619025242) do
     t.string   "state"
     t.string   "zip_code"
     t.string   "country"
+    t.integer  "plan_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["plan_id"], name: "index_users_on_plan_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["subscription_id"], name: "index_users_on_subscription_id"
 
   create_table "visitors", force: :cascade do |t|
     t.string   "email"

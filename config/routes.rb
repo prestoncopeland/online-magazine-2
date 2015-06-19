@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'content/premium'
+  get 'content/subscribed'
 
   mount Payola::Engine => '/payola', as: :payola
   root to: 'articles#home'

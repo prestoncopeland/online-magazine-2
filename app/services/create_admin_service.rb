@@ -5,6 +5,12 @@ class CreateAdminService
         user.last_name = Rails.application.secrets.admin_last_name
         user.password = Rails.application.secrets.admin_password
         user.password_confirmation = Rails.application.secrets.admin_password
+        user.addressee = "Lionel Ritchie"
+        user.address_line_1 = "123 Del Prado"
+        user.city = "Fort Myers"
+        user.state = "FL"
+        user.zip_code = "22211"
+        user.country = "US"
         user.admin!
       end
   end

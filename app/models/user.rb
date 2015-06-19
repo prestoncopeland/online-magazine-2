@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   after_initialize :set_default_subscription, :if => :new_record?
   # after_create :sign_up_for_mailing_list
 
+  validates :first_name, :last_name, :email, :addressee, :address_line_1, :city, :state, :zip_code, :country, presence: true
+
   belongs_to :subscription
   validates_associated :subscription
 

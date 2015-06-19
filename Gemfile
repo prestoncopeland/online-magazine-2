@@ -16,6 +16,8 @@ gem 'pg'
 gem 'gibbon'
 gem 'sucker_punch'
 gem 'payola-payments'
+gem 'country_select'
+gem 'carmen'
 
 gem 'rails_12factor', group: :production
 gem 'sdoc', '~> 0.4.0', group: :doc

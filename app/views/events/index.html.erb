@@ -8,9 +8,15 @@
 
  <h1>Events</h1>
 
-  <div class="span-6">
+<div class="span-6">
+  <div class="row">
+    <%= image_tag('page3-img3.jpg', :id => "pic_1", :class => "magnifier box") %>
+     <%= image_tag('page3-img12.jpg', :class=> "magnifier box") %>
+     <%= link_to 'Add New Event', new_event_path %><br>
+</div>
+</div>
 
-    <%= link_to 'Add New Event', new_event_path %><br>
+  <div class="devise-form">
     <% @events.each do |event| %>
     <h5><%= event.title %></h5>
     <%= event.description %><br><br>
@@ -26,10 +32,7 @@
   </div> <!-- end first col div -->
 
 
-  <div class="span-6">
-    <%= image_tag('page3-img3.jpg', :class => "magnifier box") %><br><br>
-     <%= image_tag('page3-img12.jpg', :class=> "magnifier box") %>
-  </div>
+
 
 
 </div>

@@ -11,6 +11,19 @@ puts 'CREATED PLAN'
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 
+(1..20).each do |i|
+  Event.create!(
+    title: "Lipsum Event #{i}",
+    start_date: "#{Date.today}",
+    end_date: "#{Date.today}",
+    description: %{Lorem ipsum dolor sit amet, consectetur adipiscing elit. In feugiat purus dapibus fermentum sagittis. Fusce in tempus felis. Phasellus a erat ut lorem lacinia bibendum.},
+    category: "celebrities",
+    address: "#{i} Middle Lane",
+    city: "San Francisco",
+    state: "CA",
+    telephone: "443 748 4938",
+    email: "example@mail.com")
+end
 
 (1..100).each do |i|
   Article.create!(title: "Lipsum Post #{i}", author: "Peter Piper", body: %{

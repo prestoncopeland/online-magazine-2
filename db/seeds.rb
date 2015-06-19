@@ -5,6 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+user = CreateAdminService.new.call
+puts 'CREATED ADMIN USER: ' << user.email
 
 (1..100).each do |i|
   Article.create!(title: "Lipsum Post #{i}", author: "Peter Piper", body: %{

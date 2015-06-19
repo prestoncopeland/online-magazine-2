@@ -18,7 +18,11 @@
               <%= render partial: 'layouts/header_links' %>
                   </ul>
                 </li>
-                <li><a href="#">Subscribe</a></li>
+                <li class="sub-menu"><a href="#">Subscribe</a>
+                  <ul>
+                    <%= render partial: 'layouts/subscribe_links' %>
+                  </ul>
+                </li>
                 <li><%= link_to "Advertise", page_path("advertise") %></li>
                 <li><%= link_to "Contact", new_visitor_path %></li>
 

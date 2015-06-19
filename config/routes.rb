@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Payola::Engine => '/payola', as: :payola
   root to: 'articles#home'
 
   devise_for :users

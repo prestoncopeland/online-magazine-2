@@ -12,8 +12,8 @@
 //
 
 //= require jquery
+//= require payola
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 

@@ -5,6 +5,7 @@
 
         <article class="span8">
           <div class="inner-1">
+            <%= link_to('Add New Article', new_article_path, :class => 'btn btn-1')%>
             <ul class="list-blog">
               <% @articles.each do |article| %>
               <li>

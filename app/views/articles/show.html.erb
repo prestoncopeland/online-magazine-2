@@ -7,13 +7,15 @@
               <li>
                 <%= render partial: 'articles/individual_article', locals: {:article => @article} %>
               </li>
-              <li>
-              <%= link_to "Edit Article", edit_article_path(@article) %>
 
-<%= link_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
-
-<%= link_to "Back To All Articles", articles_path %>
+<% if user_signed_in? %>
+      <% if current_user.admin? %>
+<li>
+<%= link_to "Edit Article", edit_article_path(@article) %> |
+<%= link_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %> | <%= link_to "Back To All Articles", articles_path %>
 </li>
+<% end %>
+<% end %>
               </ul>
           </div>
         </article>

@@ -10,6 +10,8 @@
 <p>Zip Code: <%= @user.zip_code %></p>
 <p>Country: <%= @user.country %></p>
 
+<%= link_to "Back to all users", users_path %> |
+
 <% if user_signed_in? %>
  <% if current_user.admin? || @user == current_user %>
       <%= link_to("Delete user", user_path(@user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs') unless @user == current_user %>

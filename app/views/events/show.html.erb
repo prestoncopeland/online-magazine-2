@@ -55,7 +55,8 @@
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Go Back To All Events', events_path %>
+<%= link_to 'Delete event', @event, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Go back to all events', events_path %>
 
 </div>
 </div>

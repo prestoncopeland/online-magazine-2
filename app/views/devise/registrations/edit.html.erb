@@ -15,9 +15,25 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+    <br> <h5>Where and to whom should we send the magazine?</h5> <br>
+
+    <%= f.input :addressee, required: true %>
+
+    <%= f.input :address_line_1, required: true %>
+
+    <%= f.input :address_line_2 %>
+
+    <%= f.input :city, required: true %>
+
+    <%= f.input :state, collection: us_states, required: true %>
+
+    <%= f.input :zip_code, required: true %>
+
+    <%= f.input :country, as: :country, priority: ['US', 'CA', 'MX'], required: true %>
+
+    <%= f.input :password, autocomplete: "off", hint: "Please leave it blank if you don't want to change it", required: false %>
     <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+    <%= f.input :current_password, hint: "We need your current password to confirm your changes", required: true %>
   </div>
 
   <div class="form-actions">

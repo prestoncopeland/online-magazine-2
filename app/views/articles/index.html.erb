@@ -29,6 +29,20 @@
           <!-- Search bar -->
           <%= render partial: 'layouts/search_bar' %>
           <!-- end search bar -->
+          <table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+  </tr>
+
+<% @searched_articles.each do |article| %>
+  <tr>
+    <td><%= article.title %></td>
+    <td><%= article.author %></td>
+  </tr>
+<% end %>
+</table>
+
 
           <!-- latest articles list -->
             <%= render partial: 'layouts/sidebar_list', locals: {:articles => @latest_articles, :title => 'Latest Articles'} %>

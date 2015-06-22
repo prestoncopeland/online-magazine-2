@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :photos
+    collection do
+      get :search
+    end
   end
 
   resources :tags

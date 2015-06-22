@@ -15,6 +15,10 @@ class ArticlesController < ApplicationController
     @articles = Article.paginate(:page => params[:page], :per_page => 10).order(created_at: :desc)
     @latest_articles = Article.limit(15).order(created_at: :desc)
     @popular_articles = Article.limit(15).order(:created_at)
+    @query = Article.search do
+        fulltext params[:search]
+    end
+    @searched_articles = @query.results
   end
 
   def show

@@ -17,4 +17,8 @@ class Article < ActiveRecord::Base
       self.tags = new_or_found_tags
   end
 
+  searchable do
+    text :title, :author, :body
+  end
+
 end

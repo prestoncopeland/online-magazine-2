@@ -17,6 +17,7 @@ gem 'gibbon'
 gem 'sucker_punch'
 gem 'payola-payments'
 gem 'country_select'
+gem 'sunspot_rails'
 
 gem 'rails_12factor', group: :production
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -24,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development do
   gem 'rails_apps_testing'
   gem 'rails_apps_pages'
+  gem 'sunspot_solr'
 end
 
 group :test do

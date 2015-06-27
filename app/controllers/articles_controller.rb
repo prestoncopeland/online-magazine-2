@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+ class ArticlesController < ApplicationController
 
   def home
     @latest_articles = Article.limit(6).order(created_at: :desc)

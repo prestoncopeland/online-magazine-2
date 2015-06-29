@@ -1,0 +1,32 @@
+<div class="devise-form">
+<div>
+ <%= render partial: 'layouts/search_bar' %>
+</div>
+
+<% if @searched_articles.empty? %>
+  <h2>No Results Found</h2>
+
+  <p>Sorry, no articles were found matching your search for "<%= @term %>."</p>
+
+  <p><%= link_to "Return to all articles", articles_path %></p>
+
+<% else %>
+  <h2>Search Results</h2>
+
+  <p><%= link_to "Return to all articles", articles_path %></p>
+
+  <p>Found: <%= @searched_articles.total_entries %></p>
+
+  <%= will_paginate @searched_articles %>
+
+<ul>
+<% @searched_articles.each do |article| %>
+    <li class="box"><%= render partial: 'article_thumb', locals: {article: article} %></li>
+    <% end %>
+</ul>
+
+<br />
+
+
+<% end %>
+</div>

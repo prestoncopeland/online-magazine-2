@@ -19,6 +19,11 @@ class Article < ActiveRecord::Base
 
   searchable do
     text :title, :author, :body
+
+    string :sort_title do
+      title.downcase.gsub(/^(an?|the)/, '')
+    end
+
   end
 
 end

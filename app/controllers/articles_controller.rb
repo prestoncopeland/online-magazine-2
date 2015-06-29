@@ -15,10 +15,19 @@
     @articles = Article.paginate(:page => params[:page], :per_page => 10).order(created_at: :desc)
     @latest_articles = Article.limit(15).order(created_at: :desc)
     @popular_articles = Article.limit(15).order(:created_at)
-    @query = Article.search do
-        fulltext params[:search]
+  end
+
+  def search
+    @term = params[:search]
+    if params[:search].present?
+      @query = Article.search do
+          keywords params[:search]
+          paginate :page => params[:page], :per_page => 50
+      end
+      @searched_articles = @query.results
+    else
+      @searched_articles = []
     end
-    @searched_articles = @query.results
   end
 
   def show

@@ -1,21 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
-  include Payola::StatusBehavior
-  before_action :cancel_subscription, only: [:destroy]
 
-  def new
-    build_resource({})
-    unless params[:plan].nil?
-      @plan = Plan.find_by!(stripe_id: params[:plan])
-      resource.plan = @plan
-    end
-    yield resource if block_given?
-    respond_with self.resource
-  end
 
   def create
     build_resource(sign_up_params)
-    plan = Plan.find_by!(id: params[:user][:plan_id].to_i)
-  resource.role = User.roles[plan.stripe_id] unless resource.admin?
+    resource.role = User.roles[:subscribed] unless resource.admin?
+    resource.stripeToken = params[:stripeToken]
+    pay_with_card
     resource.save
 
     yield resource if block_given?
@@ -23,11 +13,11 @@ class RegistrationsController < Devise::RegistrationsController
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
         sign_up(resource_name, resource)
-        subscribe
+         respond_with resource, location: after_sign_up_path_for(resource)
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_flashing_format?
         expire_data_after_sign_in!
-        subscribe
+        respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
     else
       clean_up_passwords resource
@@ -39,21 +29,31 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
 
+
   def sign_up_params
     params.require(:user).permit(:email,
-    :password, :password_confirmation, :plan_id, :first_name, :last_name, :addressee, :address_line_1, :address_line_2, :city, :state, :zip_code, :country)
+    :password, :password_confirmation, :first_name, :last_name, :addressee, :address_line_1, :address_line_2, :city, :state, :zip_code, :country)
   end
 
-  def subscribe
-    return if resource.admin?
-    params[:plan] = current_user.plan
-    subscription = Payola::CreateSubscription.call(params, current_user)
-    render_payola_status(subscription)
-  end
+  def pay_with_card
 
-  def cancel_subscription
-    subscription = Payola::Subscription.find_by!(owner_id: current_user.id, state: 'active')
-    Payola::CancelSubscription.call(subscription)
+    customer = Stripe::Customer.create(
+      :email => params[:user][:email],
+      :card  => params[:stripeToken]
+    )
+    price = Rails.application.secrets.product_price
+    title = Rails.application.secrets.product_title
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => "#{price}",
+      :description => "#{title}",
+      :currency    => 'usd'
+    )
+    Rails.logger.info("Stripe transaction for #{resource.email}") if charge[:paid] == true
+    rescue Stripe::InvalidRequestError => e
+    resource.errors[:base] << e.message
+    rescue Stripe::CardError => e
+    resource.errors[:base] << e.message
   end
 
 end

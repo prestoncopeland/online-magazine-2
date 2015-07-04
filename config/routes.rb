@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'content/subscribed'
-
-  mount Payola::Engine => '/payola', as: :payola
   root to: 'articles#home'
 
   devise_for :users, :controllers => { :registrations => 'registrations' }

@@ -1,24 +1,12 @@
 
-<!-- this has to stay with form_for b/c Payola
-  doesn't support SimpleForm as of 6/15 -->
-<% content_for :head do %>
-  <%= render 'payola/transactions/stripe_header' %>
-<% end %>
-
 <div class="row">
   <div class="devise-form">
 
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form',
-        :class => 'payola-onestep-subscription-form',
-        'data-payola-base-path' => payola_path,
-        'data-payola-plan-type' => resource.plan.plan_class,
-        'data-payola-plan-id' => resource.plan.id}) do |f| %>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
 
       <h2>Subscribe</h2>
 
       <p>*All fields are required except Address Line 2</p>
-
-       <span class="payola-payment-error"></span>
 
       <br><h5>Creating your account</h5><br>
       <div class="form-inputs">
@@ -33,15 +21,6 @@
         <%= f.text_field :last_name %>
       </div>
 
-      <% if @plan.nil? %>
-        <div class="form-group">
-          <%= f.label 'Subscription plan' %>
-          <%= f.collection_select(:plan_id, Plan.all, :id, :name) %>
-        </div>
-      <% else %>
-          <%= f.hidden_field :plan_id, :value => resource.plan.id %>
-      <% end %>
-
       <div class="form-group">
       <%= f.label :email %>
       <%= f.email_field :email, :autofocus => true, class: 'form-control', data: { payola: 'email' }  %>
@@ -52,15 +31,12 @@
       <%= f.password_field :password, class: 'form-control' %>
       </div>
 
-
       <div class="form-group">
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
 
-
     <br> <h5>Where and to whom should we send the magazine?</h5> <br>
-
 
       <div class="form-group">
         <%= f.label :addressee %>
@@ -97,58 +73,24 @@
         <%= f.country_select(:country, priority_countries: ["US", "CA", "MX"]) %>
       </div>
 
-      <br><h5>Payment</h5><br>
-       <div class="form-group">
-          <%= label_tag :card_number, "Credit card number" %>
-          <%= text_field_tag :card_number, nil, name: nil, class: 'form-control', data: { stripe: 'number' } %>
-      </div>
+      <br>
+      <script src="https://checkout.stripe.com/v2/checkout.js"
+      class="stripe-button"
+      data-label="Pay for Subscription"
+      data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
+      data-description="<%= Rails.application.secrets.product_title %>"
+      data-amount="<%= Rails.application.secrets.product_price %>">
+     </script>
 
-      <div class="form-group">
-        <%= label_tag :card_code, "Card security code" %>
-        <%= text_field_tag :card_code, nil, name: nil, class: 'form-control', data: { stripe: 'cvc' } %>
-      </div>
-
-      <br />
-      <div class="form-group">
-        <%= label_tag :card_month, "Card expiry" %>
-        <%= select_month nil, { use_two_digit_numbers: true}, { name: nil, data: { stripe: 'exp-month' } } %>
-        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, { name: nil, data: { stripe: 'exp-year' } } %>
-      </div>
-
-      <div class="form-actions">
-      <%= f.submit 'Subscribe', :class => 'btn btn-1' %>
-      </div>
-
+      <br/>
       <% end %>
 
+      <br/>
       <%= render "devise/shared/links" %>
 
     </div> <!-- end div class form inputs -->
   </div>
 </div>
 
-<%
-=begin %>
-    <%= f.input :addressee, required: true %>
-    <%= f.input :address_line_1, required: true %>
-    <%= f.input :address_line_2 %>
-    <%= f.input :city, required: true %>
-    <%= f.input :state, required: true do %>
-        <%= f.select :state, us_states %>
-    <% end %>
-    <%= f.input :zip_code, required: true %>
-    <%= f.input :country, required: true, priority: ["US", "CA", "MX"] %>
-      </div> <!-- end form inputs -->
 
-
-    <%= f.button :submit, "Subscribe", :class => 'btn btn-1' %>
-  </div>
-
-
-
-
-</div>
-</div>
-<%
-=end %>
 

@@ -15,9 +15,9 @@ gem 'devise'
 gem 'pg'
 gem 'gibbon'
 gem 'sucker_punch'
-gem 'payola-payments'
 gem 'country_select'
 gem 'sunspot_rails'
+gem 'stripe'
 
 gem 'rails_12factor', group: :production
 gem 'sdoc', '~> 0.4.0', group: :doc

@@ -5,7 +5,11 @@
 
         <article class="span8">
           <div class="inner-1">
+            <% if user_signed_in? %>
+              <% if current_user.admin? %>
             <%= link_to('Add New Article', new_article_path, :class => 'btn btn-1')%>
+              <% end %>
+            <% end %>
             <ul class="list-blog">
               <% @articles.each do |article| %>
               <li>

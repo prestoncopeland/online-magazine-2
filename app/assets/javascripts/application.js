@@ -12,7 +12,6 @@
 //
 
 //= require jquery
-//= require payola
 //= require jquery_ujs
 //= require_tree .
 

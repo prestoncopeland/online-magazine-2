@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
 
   enum role: [:user, :admin, :subscribed]
   after_initialize :set_default_role, :if => :new_record?
-  # after_create :sign_up_for_mailing_list
 
   attr_accessor :stripeToken
 

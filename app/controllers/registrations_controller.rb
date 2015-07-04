@@ -6,7 +6,9 @@ class RegistrationsController < Devise::RegistrationsController
     resource.role = User.roles[:subscribed] unless resource.admin?
     resource.stripeToken = params[:stripeToken]
     pay_with_card
-    resource.save
+    if resource.save
+      MailingListSignupJob.perform_later resource
+    end
 
     yield resource if block_given?
     if resource.persisted?

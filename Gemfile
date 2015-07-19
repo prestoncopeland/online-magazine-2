@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 gem 'rails', '4.2.1'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -18,6 +17,7 @@ gem 'sucker_punch'
 gem 'country_select'
 gem 'sunspot_rails'
 gem 'stripe'
+gem 'thin'
 
 gem 'rails_12factor', group: :production
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -39,7 +39,6 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'thin'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 end

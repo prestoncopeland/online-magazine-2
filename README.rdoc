@@ -1,5 +1,11 @@
 == README
 
-This will be a portal for an online magazine.
+This is a portal for an online magazine.
 
-The database will be PostgreSQL because it will be deployed on Heroku.
+The database is PostgreSQL because it was deployed on Heroku.
+
+It was originally for a remote client (that is, a customer in another state), but he cancelled the project, so now it's a portfolio piece.
+
+Technical highlights: MailChimp through Gibbon gem, subscription with Stripe Checkout through the Stripe gem, photo uploads with Paperclip gem, and full-text search of articles via Solr. All of the functionality is there if you examine the code, but of course some of it doesn't work on Heroku, either because it's just a demo now (so Stripe payment isn't activated) or because it would incur costs (On Heroku, Solr needs the websolr plugin, which isn't free).
+
+It lives at initialsmagazine.herokuapp.com.
